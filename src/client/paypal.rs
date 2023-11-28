@@ -164,6 +164,24 @@ impl Client {
         Ok(response)
     }
 
+    /// Performs a DELETE request.
+    /// # Arguments
+    /// * `endpoint` - The endpoint to call.
+    ///
+    /// # Returns
+    /// The response body serialized into the provided type.
+    ///
+    /// # Errors
+    /// Errors if the request fails or the response body cannot be deserialized.
+    pub async fn delete<T: Endpoint>(&self, endpoint: &T) -> Result<T::ResponseBody, PayPalError> {
+        let mut req = self.http.delete(endpoint.request_url(self.environment));
+        req = self.set_request_headers(req, &endpoint.headers());
+
+        let response = self.execute(endpoint, req).await?;
+
+        Ok(response)
+    }
+
     /// Sets the request headers for a request.
     ///
     /// # Arguments
