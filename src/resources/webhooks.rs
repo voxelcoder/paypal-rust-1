@@ -72,7 +72,8 @@ impl Webhook {
 
     /// Deletes a webhook.
     pub async fn delete(client: &Client, id: String) -> Result<(), PayPalError> {
-        client.delete(&DeleteWebhook::new(id)).await
+        client.delete(&DeleteWebhook::new(id)).await?;
+        Ok(())
     }
 
     /// Simulates a webhook event.

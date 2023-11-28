@@ -1,3 +1,9 @@
+use std::borrow::Cow;
+
+use reqwest::Method;
+use serde::{Deserialize, Serialize};
+use serde_with::skip_serializing_none;
+
 use crate::client::endpoint::{EmptyResponseBody, Endpoint};
 use crate::client::error::PayPalError;
 use crate::client::paypal::Client;
@@ -12,10 +18,6 @@ use crate::resources::payment_source::PaymentSource;
 use crate::resources::payment_source_response::PaymentSourceResponse;
 use crate::resources::purchase_unit::PurchaseUnit;
 use crate::resources::purchase_unit_request::PurchaseUnitRequest;
-use reqwest::Method;
-use serde::{Deserialize, Serialize};
-use serde_with::skip_serializing_none;
-use std::borrow::Cow;
 
 #[skip_serializing_none]
 #[derive(Clone, Debug, Default, Deserialize, Serialize)]
@@ -76,7 +78,8 @@ impl Order {
     /// that contains only one purchase unit, PayPal sets the value to default which enables you to
     /// use the path: "/purchase_units/@reference_id=='default'/{attribute-or-object}"
     pub async fn patch(client: &Client, id: &str, dto: PatchOrderDto) -> Result<(), PayPalError> {
-        client.patch(&PatchOrder::new(id.to_string(), dto)).await
+        client.patch(&PatchOrder::new(id.to_string(), dto)).await?;
+        Ok(())
     }
 
     /// Authorizes payment for an order. To successfully authorize payment for an order, the buyer
