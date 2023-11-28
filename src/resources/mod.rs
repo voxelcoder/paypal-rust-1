@@ -1,3 +1,64 @@
+#[rustfmt::skip]
+pub use {
+    address::*,
+    address_details::*,
+    address_portable::*,
+    amount_breakdown::*,
+    amount_with_breakdown::*,
+    authorization_status_details::*,
+    authorization_with_additional_data::*,
+    capture::*,
+    capture_status_details::*,
+    card_address_portable::*,
+    card_response::*,
+    create_webhook_event_type::*,
+    date_no_time::*,
+    email::*,
+    enums::*,
+    enums::*,
+    exchange_rate::*,
+    item::*,
+    link_description::*,
+    money::*,
+    name::*,
+    net_amount_breakdown::*,
+    network_transaction_reference::*,
+    order::*,
+    order_application_context::*,
+    patch::*,
+    payee::*,
+    payee_base::*,
+    payer::*,
+    payment_collection::*,
+    payment_instruction::*,
+    payment_method::*,
+    payment_source::*,
+    payment_source_response::*,
+    payments::*,
+    paypal_payment_source_response::*,
+    phone_with_type::*,
+    phone_with_type_phone::*,
+    platform_fee::*,
+    processor_response::*,
+    purchase_unit::*,
+    purchase_unit_request::*,
+    refund::*,
+    refund_status_details::*,
+    seller_payable_breakdown::*,
+    seller_protection::*,
+    seller_recievable_breakdown::*,
+    shipping_detail::*,
+    shipping_detail_address_portable::*,
+    shipping_detail_name::*,
+    shipping_option::*,
+    show_webhook_event_type::*,
+    stored_payment_source::*,
+    tax_info::*,
+    token::*,
+    user_info::*,
+    webhooks::*,
+};
+
 pub mod address;
 pub mod address_details;
 pub mod address_portable;
@@ -9,6 +70,7 @@ pub mod capture;
 pub mod capture_status_details;
 pub mod card_address_portable;
 pub mod card_response;
+pub mod create_webhook_event_type;
 pub mod date_no_time;
 pub mod email;
 pub mod enums;
@@ -47,67 +109,9 @@ pub mod shipping_detail;
 pub mod shipping_detail_address_portable;
 pub mod shipping_detail_name;
 pub mod shipping_option;
+pub mod show_webhook_event_type;
 pub mod stored_payment_source;
 pub mod tax_info;
 pub mod token;
 pub mod user_info;
 pub mod webhooks;
-
-#[rustfmt::skip]
-pub use {
-    enums::*,
-    address::*,
-    address_details::*,
-    address_portable::*,
-    amount_breakdown::*,
-    amount_with_breakdown::*,
-    authorization_status_details::*,
-    authorization_with_additional_data::*,
-    capture::*,
-    capture_status_details::*,
-    card_address_portable::*,
-    card_response::*,
-    date_no_time::*,
-    email::*,
-    enums::*,
-    exchange_rate::*,
-    item::*,
-    link_description::*,
-    money::*,
-    name::*,
-    net_amount_breakdown::*,
-    network_transaction_reference::*,
-    order::*,
-    order_application_context::*,
-    patch::*,
-    payee::*,
-    payee_base::*,
-    payer::*,
-    payment_collection::*,
-    payment_instruction::*,
-    payment_method::*,
-    payment_source::*,
-    payment_source_response::*,
-    payments::*,
-    paypal_payment_source_response::*,
-    phone_with_type::*,
-    phone_with_type_phone::*,
-    platform_fee::*,
-    processor_response::*,
-    purchase_unit::*,
-    purchase_unit_request::*,
-    refund::*,
-    refund_status_details::*,
-    seller_payable_breakdown::*,
-    seller_protection::*,
-    seller_recievable_breakdown::*,
-    shipping_detail::*,
-    shipping_detail_address_portable::*,
-    shipping_detail_name::*,
-    shipping_option::*,
-    stored_payment_source::*,
-    tax_info::*,
-    token::*,
-    webhooks::*,
-    user_info::*,
-};

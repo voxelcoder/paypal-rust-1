@@ -154,14 +154,14 @@ impl Client {
     ///
     /// # Errors
     /// Errors if the request fails or the response body cannot be deserialized.
-    pub async fn patch<T: Endpoint>(&self, endpoint: &T) -> Result<(), PayPalError> {
+    pub async fn patch<T: Endpoint>(&self, endpoint: &T) -> Result<T::ResponseBody, PayPalError> {
         let body = serde_json::to_string(&endpoint.request_body())?;
         let mut req = self.http.patch(endpoint.request_url(self.environment));
 
         req = self.set_request_headers(req, &endpoint.headers());
-        self.execute(endpoint, req.body(body)).await?;
+        let response = self.execute(endpoint, req.body(body)).await?;
 
-        Ok(())
+        Ok(response)
     }
 
     /// Sets the request headers for a request.

@@ -1,3 +1,4 @@
+pub mod anchor_type;
 pub mod authorization_status_reason;
 pub mod avs_code;
 pub mod capture_status;
@@ -43,7 +44,7 @@ pub use {
         capture_status::*,
         capture_status_reason::*,
         card_type::*,
-        category::*,
+        category::*,    
         country_codes::*,
         currency_code::*,
         cvv_code::*,
@@ -74,5 +75,6 @@ pub use {
         usage::*,
         user_action::*,
         verification_status::*,
+        anchor_type::*,
     },
 };
