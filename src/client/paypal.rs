@@ -19,7 +19,7 @@ use crate::client::request::QueryParams;
 
 pub static USER_AGENT: &str = concat!("PayPal/v2 Rust Bindings/", env!("CARGO_PKG_VERSION"));
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct Client {
     pub default_headers: request::HttpRequestHeaders,
     pub auth_data: Arc<RwLock<AuthData>>,
