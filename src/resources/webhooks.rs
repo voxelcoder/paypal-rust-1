@@ -158,7 +158,7 @@ impl Endpoint for VerifyWebhookSignature {
 
 #[derive(Clone, Debug, Serialize)]
 pub struct ListWebhooksQuery {
-    anchor_type: Option<AnchorType>,
+    pub anchor_type: Option<AnchorType>,
 }
 
 #[derive(Clone, Debug, Deserialize)]
