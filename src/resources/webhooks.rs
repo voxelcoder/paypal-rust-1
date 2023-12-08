@@ -236,7 +236,7 @@ impl Endpoint for ShowWebhookDetails {
 
 #[derive(Clone, Debug, Serialize)]
 pub struct CreateWebhookDto {
-    pub event_type: Vec<CreateWebhookEventType>,
+    pub event_types: Vec<CreateWebhookEventType>,
 }
 
 type CreateWebhookResponse = ShowWebhookDetailsResponse;
