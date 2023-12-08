@@ -228,11 +228,18 @@ impl Client {
 
         let response = request.send().await?;
 
+        println!("Got response: {:?}", &response);
+
         if !response.status().is_success() {
             return Err(PayPalError::from(response.json::<ValidationError>().await?));
         }
 
-        serde_json::from_str::<T::ResponseBody>(&response.text().await?).or_else(|error| {
+        let text = response.text().await;
+
+        println!("Got response text: {:?}", &text);
+
+        serde_json::from_str::<T::ResponseBody>(&text?).or_else(|error| {
+            println!("Got error: {:?}", &error);
             // Endpoints that return an empty response body can safely be deserialized into
             // an empty struct.
             if error.is_eof() {
