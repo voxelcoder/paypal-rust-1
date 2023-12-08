@@ -404,7 +404,7 @@ impl Endpoint for SimulateWebhookEvent {
     type ResponseBody = SimulateWebhookEventResponse;
 
     fn path(&self) -> Cow<str> {
-        Cow::Borrowed("v1/notifications/webhooks-events")
+        Cow::Borrowed("v1/notifications/simulate-event")
     }
 
     fn request_body(&self) -> Option<Self::RequestBody> {
